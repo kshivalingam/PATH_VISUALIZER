@@ -1,0 +1,78 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+nav{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    /* background-color: #333333; */
+    color: white;
+}
+#path_visual{
+    padding-top: 1%;
+}
+p{
+    display: inline;
+}
+#path_visual,#algo{
+    background-color: #333333;
+    /* margin-right: 5%; */
+    padding-left: 1%;
+    font-size: xx-large;
+}
+#but_sec{
+    display: -ms-grid;
+    display: grid;
+        grid-template-columns: repeat(6, 16.66667%);
+    place-content: center;
+    padding: 2% 1%;
+}
+#implement{
+    display: inline-block;
+    width: 100%;
+    height: 70vh;
+    color: black;
+    font-size: 0px;    
+
+}
+
+#but_sec button,#reset{
+    background-color:transparent;
+    outline: none;
+    border: none;
+    font-size: large;
+    color: white;
+    text-transform: uppercase;
+    place-content: center;
+    border-radius: 8px;
+}
+#a_speed{
+    padding-top: 1px;
+}
+#reset{
+    padding: 1% 5%;
+}
+#but_sec button:hover,#reset:hover{
+    background-color: blue;
+    cursor: pointer;
+}
+#but_sec .butt_locked{
+    background-color: transparent;
+    cursor: pointer;
+}
+#but_sec .butt_locked:hover{
+    background-color: transparent;
+    cursor: pointer;
+}
+#but_sec .butt_selected{
+    background-color: transparent;
+    color: green;
+}
+#but_sec .butt_selected:hover {
+    background-color: white;
+    cursor: pointer;
+}
+#but_sec .butt_unselected:hover {
+    background-color: blue;
+    cursor: pointer;
+}
