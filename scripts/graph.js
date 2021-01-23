@@ -174,8 +174,13 @@ class Graph {
                 var neigh = get_List[i];
                 if (!visited[neigh]) {
                     visited[neigh] = true;
-                    if(Math.pow((EndNode-neigh),2) < minimum){
-                        minimum = Math.pow((EndNode - neigh),2);
+                    var x_neigh = x_mp.get(neigh);
+                    var x_dest = x_mp.get(EndNode);
+                    var y_neigh = y_mp.get(neigh);
+                    var y_dest = y_mp.get(EndNode);
+                    var distance = Math.sqrt(Math.pow((x_neigh-x_dest),2) + Math.pow((y_dest - y_neigh),2));
+                    if(distance < minimum){
+                        minimum = distance;
                         cur_neigh = neigh;
                         flag = 1;
                     }

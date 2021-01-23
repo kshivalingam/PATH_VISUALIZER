@@ -1,5 +1,6 @@
 var div_element = [];
-var div_sizes = [];
+var x_mp = new Map();
+var y_mp = new Map();
 var cont = document.getElementById("implement");
 var initial = -1;var finish = -1;
 var res = document.getElementById("reset");
@@ -12,7 +13,7 @@ var delay_time = 1000000/(Math.floor(1425/10)*speed);
 var inp_aspeed = document.getElementById("a_speed")
 inp_aspeed.addEventListener("click",vis_speed);
 
-var algo_btn = document.querySelectorAll("#but_sec button");;
+var algo_btn = document.querySelectorAll("#but_sec button");
 function vis_speed(){
     var array_speed = inp_aspeed.value;
     switch(parseInt(array_speed))
@@ -37,7 +38,7 @@ for(let i = 0; i < algo_btn.length; i++){
     console.log("added");
 }
 
-
+var y_cor = 0;
 
 function create_nodes(){
     for(let i = 0; i < no_of_nodes; i++){
@@ -45,7 +46,12 @@ function create_nodes(){
         div_element[i].style = "margin : 0px; height : 25px; width : 25px;";
         cont.appendChild(div_element[i]);
         div_element[i].textContent = i;
-        div_sizes[i] = i;
+        if(i < 44){
+            x_mp.set(i,i);
+        }else{
+            x_mp.set(i,x_mp.get(i-44));
+        }
+        y_mp.set(i,Math.floor(i/44));
     }
     for(let i = 0; i < no_of_nodes; i++){
         div_element[i].addEventListener("click",get_value);        
