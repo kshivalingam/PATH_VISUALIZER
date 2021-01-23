@@ -88,7 +88,7 @@ class Graph {
         q.push(startingNode);
         while (q.length > 0) {
             var getQueueElement = q.shift();
-            coloring(getQueueElement,1);
+            coloring(getQueueElement,"black");
             let flag = 0;
             if(EndNode == getQueueElement){
                 console.log("Found....!!!!!!!" + EndNode);
@@ -100,7 +100,7 @@ class Graph {
                 if (!visited[neigh]) {
                     visited[neigh] = true;
                     q.push(neigh);
-                    coloring(neigh,2);
+                    coloring(neigh,"yellow");
                 }
                 if(EndNode == getQueueElement){
                     console.log("Found....!!!!!!!" + EndNode);
@@ -110,7 +110,7 @@ class Graph {
                 }
             }
             if(flag == 1)break;
-            coloring(getQueueElement,3);
+            coloring(getQueueElement,"green");
         }
         enable_buttons();
     }
@@ -126,7 +126,7 @@ class Graph {
     DFSUtil(vert, visited,EndNode)
     {
         visited[vert] = true;
-        coloring(vert,1);
+        coloring(vert,"black");
         var get_neighbours = this.AdjList.get(vert);
         if(vert == EndNode){
             console.log("FOUND.....!!!!!");
@@ -135,16 +135,16 @@ class Graph {
         for (var i in get_neighbours) {
             var get_elem = get_neighbours[i];
             if (!visited[get_elem]){
-                coloring(get_elem,2);
+                coloring(get_elem,"yellow");
                 if(this.DFSUtil(get_elem, visited,EndNode)){
-                    coloring(vert,3);
+                    coloring(vert,"green");
                     return true;
                 }
 
-                coloring(get_elem,3);
+                coloring(get_elem,"green");
             }
         }
-        coloring(vert,3);
+        coloring(vert,"green");
     }
     
     a_star(startNode,EndNode){
@@ -162,7 +162,7 @@ class Graph {
             pq.dequeue();
             var get_List = this.AdjList.get(getQueueElement.element);
             var flag = 0;
-            coloring(getQueueElement.element,1);
+            coloring(getQueueElement.element,"black");
             route.push(getQueueElement.element);
             if(EndNode == getQueueElement.element){
                 console.log("Found....!!!!!!!" + EndNode);
@@ -197,7 +197,7 @@ class Graph {
         //     pq.dequeue();
         // }
         for(let idx = 0; idx < route.length; idx++){
-            coloring(route[idx],3);
+            coloring(route[idx],"green");
         }
         enable_buttons();
     }
@@ -205,19 +205,10 @@ class Graph {
 function coloring(ith,search){
     window.setTimeout(function(){
         if(ith == initial || ith == finish  ){
-            div_element[ith].style = "color: blue; background-color: blue;float: left; margin : 0px; height : 25px; width : 25px;";
-        }
-        else if(search == 1){
-            div_element[ith].style = "color: black; background-color: black;float: left; margin : 0px; height : 25px; width : 25px;";
-        }
-        else if(search == 2){
-            div_element[ith].style = "color: yellow; background-color: yellow;float: left; margin : 0px; height : 25px; width : 25px;";
-        }
-        else if(search == 3){
-            div_element[ith].style = "color: green; background-color: green;float: left; margin : 0px; height : 25px; width : 25px;";
+            div_element[ith].style = "color: blue; background-color: blue; margin : 0px; height : 25px; width : 25px;";
         }
         else{
-            div_element[ith].style = "color: red; background-color: red;float: left; margin : 0px; height : 25px; width : 25px;";
+            div_element[ith].style = "color: "+search + "; background-color:" + search + "; margin : 0px; height : 25px; width : 25px;";
         }
     },clock += delay_time);
 }
