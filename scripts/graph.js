@@ -89,9 +89,9 @@ class Graph {
         while (q.length > 0) {
             var getQueueElement = q.shift();
             coloring(getQueueElement,"black");
-            let flag = 0;
+            var flag = 0;
             if(EndNode == getQueueElement){
-                console.log("Found....!!!!!!!" + EndNode);
+                // console.log("Found....!!!!!!!" + EndNode);
                 break;
             }
             var get_List = this.AdjList.get(getQueueElement);
@@ -103,7 +103,7 @@ class Graph {
                     coloring(neigh,"yellow");
                 }
                 if(EndNode == getQueueElement){
-                    console.log("Found....!!!!!!!" + EndNode);
+                    // console.log("Found....!!!!!!!" + EndNode);
                     flag = 1;
 
                     break;
@@ -120,7 +120,6 @@ class Graph {
         var visited = {};
     
         var s = this.DFSUtil(startingNode, visited,EndNode);
-        console.log(s);
         enable_buttons();
     }
     DFSUtil(vert, visited,EndNode)
@@ -129,7 +128,7 @@ class Graph {
         coloring(vert,"black");
         var get_neighbours = this.AdjList.get(vert);
         if(vert == EndNode){
-            console.log("FOUND.....!!!!!");
+            // console.log("FOUND.....!!!!!");
             return true;
         }
         for (var i in get_neighbours) {
@@ -153,9 +152,6 @@ class Graph {
         var visited ={};
         pq.enqueue(startNode,EndNode - startNode);
         visited[startNode] = true;
-        console.log()
-        console.log(startNode);
-        console.log(EndNode - startNode);
         var route = [];
         while(!pq.isEmpty()){
             var getQueueElement  = pq.front();
@@ -165,7 +161,7 @@ class Graph {
             coloring(getQueueElement.element,"black");
             route.push(getQueueElement.element);
             if(EndNode == getQueueElement.element){
-                console.log("Found....!!!!!!!" + EndNode);
+                // console.log("Found....!!!!!!!" + EndNode);
                 break;
             }
             var minimum = Number.MAX_VALUE;

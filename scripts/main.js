@@ -62,6 +62,7 @@ function Util_reset(){
     console.log("Util_reset is invoked");
     initial = -1;
     finish = -1;
+    clock = 0;
     div_element = [];
     document.getElementById("implement").textContent = "";
     create_graph();
