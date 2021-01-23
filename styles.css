@@ -27,15 +27,23 @@ p{
     place-content: center;
     padding: 2% 1%;
 }
+section {
+    padding: 2.5%;
+}
 #implement{
-    display: inline-block;
-    width: 100%;
-    height: 70vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 1200px;
+    height: 400px;
     color: black;
+    /* border: 3px solid #73AD21; */
     font-size: 0px;    
 
 }
-
+#implement div{
+    border: 1px solid black;
+}
 #but_sec button,#reset{
     background-color:transparent;
     outline: none;
@@ -75,4 +83,12 @@ p{
 #but_sec .butt_unselected:hover {
     background-color: blue;
     cursor: pointer;
+}
+
+@media (max-width : 1110px){
+    #implement div{
+        width: 10px;
+        height: 10px;
+        background-color: #2e3f2e;
+    }
 }

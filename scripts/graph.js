@@ -200,19 +200,19 @@ class Graph {
 function coloring(ith,search){
     window.setTimeout(function(){
         if(ith == initial || ith == finish  ){
-            div_element[ith].style = "color: blue; background-color: blue;float: left; margin : 1px; height : 25px; width : 25px;";
+            div_element[ith].style = "color: blue; background-color: blue;float: left; margin : 0px; height : 25px; width : 25px;";
         }
         else if(search == 1){
-            div_element[ith].style = "color: black; background-color: black;float: left; margin : 1px; height : 25px; width : 25px;";
+            div_element[ith].style = "color: black; background-color: black;float: left; margin : 0px; height : 25px; width : 25px;";
         }
         else if(search == 2){
-            div_element[ith].style = "color: yellow; background-color: yellow;float: left; margin : 1px; height : 25px; width : 25px;";
+            div_element[ith].style = "color: yellow; background-color: yellow;float: left; margin : 0px; height : 25px; width : 25px;";
         }
         else if(search == 3){
-            div_element[ith].style = "color: green; background-color: green;float: left; margin : 1px; height : 25px; width : 25px;";
+            div_element[ith].style = "color: green; background-color: green;float: left; margin : 0px; height : 25px; width : 25px;";
         }
         else{
-            div_element[ith].style = "color: red; background-color: red;float: left; margin : 1px; height : 25px; width : 25px;";
+            div_element[ith].style = "color: red; background-color: red;float: left; margin : 0px; height : 25px; width : 25px;";
         }
     },clock += delay_time);
 }
@@ -221,7 +221,7 @@ function set_utils(){
     for(var j = 0; j < div_element.length; j++){
         g.addVertex(j);
     }
-    for(var edge = 45; edge <1425 ; edge += 46){
+    for(var edge = edge_node; edge <no_of_nodes ; edge += edge_node + 1){
         set.add(edge + 1);
         set.add(edge);
     }
@@ -233,14 +233,14 @@ function create_graph(){
     set_utils();
     console.log(set);
     for(var i = 0; i < div_element.length; i++){
-        if(i - 46 >= 0){
-            g.addEdge(i,i - 46)
+        if(i - (edge_node + 1) >= 0){
+            g.addEdge(i,i - (edge_node + 1))
         }
         if(!set.has(i + 1) && i + 1 < div_element.length){
             g.addEdge(i,i + 1);
         }
         if(i + 46 < div_element.length -1){
-            g.addEdge(i,i + 46);
+            g.addEdge(i,i + (edge_node + 1));
         }
         if(!set.has(i - 1) && i - 1 >= 0){
             g.addEdge(i,i - 1);

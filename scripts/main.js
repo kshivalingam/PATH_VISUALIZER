@@ -4,8 +4,8 @@ var cont = document.getElementById("implement");
 var initial = -1;var finish = -1;
 var res = document.getElementById("reset");
 res.addEventListener("click",Util_reset);
-
-
+var no_of_nodes = 660;
+var edge_node = 43;
 var speed = 10000;
 var clock = 0;
 var delay_time = 1000000/(Math.floor(1425/10)*speed);
@@ -40,14 +40,14 @@ for(let i = 0; i < algo_btn.length; i++){
 
 
 function create_nodes(){
-    for(let i = 0; i < 1425; i++){
+    for(let i = 0; i < no_of_nodes; i++){
         div_element[i] = document.createElement("div");
-        div_element[i].style = "float: left; margin : 1px; height : 25px; width : 25px;";
+        div_element[i].style = "margin : 0px; height : 25px; width : 25px;";
         cont.appendChild(div_element[i]);
         div_element[i].textContent = i;
         div_sizes[i] = i;
     }
-    for(let i = 0; i < 1425; i++){
+    for(let i = 0; i < no_of_nodes; i++){
         div_element[i].addEventListener("click",get_value);        
     }
 }
@@ -63,12 +63,12 @@ function Util_reset(){
 function get_value(){
     if(initial == -1){
         initial = parseInt(this.textContent);
-        div_element[initial].style = "color:red; background-color: red;float: left; margin : 1px; height : 25px; width : 25px;";
+        div_element[initial].style = "color:red; background-color: red;float: left; margin : 0px; height : 25px; width : 25px;";
 
     }
     else if(finish != initial && finish == -1){
         finish = parseInt(this.textContent);
-        div_element[finish].style = "color:red; background-color: red;float: left; margin : 1px; height : 25px; width : 25px;";
+        div_element[finish].style = "color:red; background-color: red;float: left; margin : 0px; height : 25px; width : 25px;";
 
     }
     console.log(initial + " " + finish);
